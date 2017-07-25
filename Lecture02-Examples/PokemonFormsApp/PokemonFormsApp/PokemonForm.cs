@@ -24,6 +24,7 @@ namespace PokemonFormsApp
             UserCandy = 1234;
             Monster = new Monster()
             {
+                NationalNumber = 1,
                 Name = "妙蛙種子",
                 CurrentHp = 40,
                 Hp = 60,
@@ -34,27 +35,19 @@ namespace PokemonFormsApp
                 PowerUpStardust = 3000,
                 EvolveCandy = 25
             };
-            Monster_Label.Text = Monster.Name;
-            Hp_Label.Text = Monster.CurrentHp.ToString() + "/" + Monster.Hp + "HP";
-            Height_Label.Text = Monster.Height.ToString() + "m";
-            Types_Label.Text = Monster.Types[0] + "/" + Monster.Types[1];
-            Weight_Label.Text = Monster.Weight.ToString() + "kg";
-            PowerUpCandy_Label.Text = Monster.PowerUpCandy.ToString();
-            PowerUpStardust_Label.Text = Monster.PowerUpStardust.ToString();
-            EvolveCandy_Label.Text = Monster.EvolveCandy.ToString();
-            UserStardust_Label.Text = UserStarDust.ToString();
-            UserCandy_Label.Text = UserCandy.ToString();
+
+            Render();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UserCandy = UserCandy - Monster.PowerUpCandy;
-            UserStarDust = UserStarDust - Monster.PowerUpStardust;
-            Monster.Hp = Monster.Hp + 10;
-            Monster.CurrentHp = Monster.CurrentHp + 10;
-            Hp_Label.Text = Monster.CurrentHp.ToString() + "/" + Monster.Hp + "HP";
-            UserStardust_Label.Text = UserStarDust.ToString();
-            UserCandy_Label.Text = UserCandy.ToString();
+            if (UserCandy >= Monster.PowerUpCandy && UserStarDust >= Monster.PowerUpStardust)
+            {
+                UserCandy = UserCandy - Monster.PowerUpCandy;
+                UserStarDust = UserStarDust - Monster.PowerUpStardust;
+                Monster.Powerup();
+                Render();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,11 +65,17 @@ namespace PokemonFormsApp
                 PowerUpStardust = 3000,
                 EvolveCandy = 100
             };
+
+            Render();
+        }
+
+        private void Render()
+        {
             Monster_Label.Text = Monster.Name;
             Hp_Label.Text = Monster.CurrentHp.ToString() + "/" + Monster.Hp + "HP";
-            Height_Label.Text = Monster.Height.ToString();
+            Height_Label.Text = Monster.Height.ToString() + "m";
             Types_Label.Text = Monster.Types[0] + "/" + Monster.Types[1];
-            Weight_Label.Text = Monster.Weight.ToString();
+            Weight_Label.Text = Monster.Weight.ToString() + "kg";
             PowerUpCandy_Label.Text = Monster.PowerUpCandy.ToString();
             PowerUpStardust_Label.Text = Monster.PowerUpStardust.ToString();
             EvolveCandy_Label.Text = Monster.EvolveCandy.ToString();

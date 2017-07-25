@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{023DC8AD-67E7-4EA5-BAAB-098265E4AA41}</ProjectGuid>
+    <ProjectGuid>{AF52CA34-38CB-459E-97E3-70188D40E181}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MonsterLibrary</RootNamespace>
-    <AssemblyName>MonsterLibrary</AssemblyName>
+    <RootNamespace>EasyMathLibrary</RootNamespace>
+    <AssemblyName>EasyMathLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,14 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Monster.cs" />
+    <Compile Include="EasyRandom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\EasyMathLibrary\EasyMathLibrary\EasyMathLibrary\EasyMathLibrary.csproj">
-      <Project>{af52ca34-38cb-459e-97e3-70188d40e181}</Project>
-      <Name>EasyMathLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
